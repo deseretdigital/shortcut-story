@@ -2,11 +2,11 @@ const core = require('@actions/core');
 const github = require('@actions/github');
 
 try {
-  const storyName = core.getInput('story-name');
+  const storyTitle = core.getInput('story-title');
   const storyDescription = core.getInput('story-description');
   const assignedTeams = core.getInput('assigned-teams');
 
-  console.log(`Story Name: ${storyName}`)
+  console.log(`Story Name: ${storyTitle}`)
   console.log(`Description: ${storyDescription}`)
   console.log(`Teams: ${assignedTeams}`)
 
