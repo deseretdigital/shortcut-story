@@ -1,10 +1,14 @@
 name: 'Hello World'
 description: 'Greet someone and record the time'
 inputs:
-  who-to-greet:  # id of input
-    description: 'Who to greet'
+  story-title:
+    description: 'The name of the story.'
     required: true
-    default: 'World'
+  story-description:
+    description: 'The description of the story.'
+  assigned-teams:
+    description: 'An array of UUIDs of the owners of this story.'
+    # TODO: Figure out how to handle an array here if it's not clear. 
 outputs:
   time: # id of output
     description: 'The time we greeted you'
