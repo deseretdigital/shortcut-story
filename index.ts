@@ -12,7 +12,7 @@ try {
   console.log(`Description: ${storyDescription}`)
   console.log(`Teams: ${assignedTeams}`)
 
-  const shortcut = new ShortcutClient(apiKey); // See https://github.com/useshortcut/shortcut-client-js#how-to-get-an-api-token
+  const shortcut = new ShortcutClient('6515fdc0-c156-4c81-ad38-d1edafab4aac'); 
 
   shortcut.getCurrentMemberInfo().then((response) => console.log(response?.data));
 

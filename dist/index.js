@@ -10684,7 +10684,7 @@ try {
     console.log("Story Name: ".concat(storyTitle));
     console.log("Description: ".concat(storyDescription));
     console.log("Teams: ".concat(assignedTeams));
-    var shortcut = new client_1.ShortcutClient(apiKey); // See https://github.com/useshortcut/shortcut-client-js#how-to-get-an-api-token
+    var shortcut = new client_1.ShortcutClient('6515fdc0-c156-4c81-ad38-d1edafab4aac');
     shortcut.getCurrentMemberInfo().then(function (response) { return console.log(response === null || response === void 0 ? void 0 : response.data); });
     shortcut.listProjects().then(function (response) { return console.log(response === null || response === void 0 ? void 0 : response.data); });
     // Get the JSON webhook payload for the event that triggered the workflow
