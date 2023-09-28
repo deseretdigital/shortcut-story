@@ -7,7 +7,7 @@ jobs:
     steps:
       - name: Hello world action step
         id: hello
-        uses: deseretdigital/shortcut-story@v0.0.7
+        uses: deseretdigital/shortcut-story@v0.0.8
         with:
           api-key: ${{ secrets.SHORTCUT_KEY }}
           story-title: 'We Found Drift'
