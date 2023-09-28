@@ -8,6 +8,8 @@ inputs:
     description: 'The description of the story.'
   assigned-teams:
     description: 'An array of UUIDs of the owners of this story.'
+  api-key:
+    description: 'Shortcut API KEY'
     # TODO: Figure out how to handle an array here if it's not clear. 
 outputs:
   time: # id of output

@@ -6,12 +6,13 @@ try {
   const storyTitle = Core.getInput('story-title');
   const storyDescription = Core.getInput('story-description');
   const assignedTeams = Core.getInput('assigned-teams');
-
+  const apiKey = Core.getInput('api-key')
+  
   console.log(`Story Name: ${storyTitle}`)
   console.log(`Description: ${storyDescription}`)
   console.log(`Teams: ${assignedTeams}`)
 
-  const shortcut = new ShortcutClient('{API_KEY}'); // See https://github.com/useshortcut/shortcut-client-js#how-to-get-an-api-token
+  const shortcut = new ShortcutClient(apiKey); // See https://github.com/useshortcut/shortcut-client-js#how-to-get-an-api-token
 
   shortcut.getCurrentMemberInfo().then((response) => console.log(response?.data));
 
