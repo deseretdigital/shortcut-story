@@ -7,13 +7,9 @@ jobs:
     steps:
       - name: Hello world action step
         id: hello
-        uses: deseretdigital/shortcut-story@v0.0.12
+        uses: deseretdigital/shortcut-story@v0.1.0
         with:
           api-key: ${{ secrets.SHORTCUT_KEY }}
           story-title: 'We Found Drift'
           story-description: 'Hey, there was some gosh darn drift.'
           assigned-teams: '63d9399f-d806-44e0-86bc-76ccd8042f8b'
-      # Use the output from the `hello` step
-      - name: Get the output time
-        run: echo "The time was ${{ steps.hello.outputs.time }}"
-
