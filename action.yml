@@ -12,7 +12,6 @@ inputs:
     description: 'Shortcut API KEY'
   workflow-state-id:
     description: 'The unique ID of the Workflow.'
-outputs:
 runs:
   using: 'node16'
   main: 'dist/index.js'
