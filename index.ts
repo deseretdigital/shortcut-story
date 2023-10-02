@@ -1,4 +1,4 @@
-import { ShortcutClient } from '@shortcut/client';
+import { Story, CreateStoryParams, ShortcutClient } from '@shortcut/client';
 import * as Core from '@actions/core';
 import * as GitHub from '@actions/github';
 
@@ -6,21 +6,19 @@ try {
   const storyTitle = Core.getInput('story-title');
   const storyDescription = Core.getInput('story-description');
   const assignedTeams = Core.getInput('assigned-teams');
-  const apiKey = Core.getInput('api-key')
-  
-  console.log(`Story Name: ${storyTitle}`)
-  console.log(`Description: ${storyDescription}`)
-  console.log(`Teams: ${assignedTeams}`)
+  const apiKey = Core.getInput('api-key');
+  const workflowId = Number(Core.getInput('workflow-state-id'));
 
-  const shortcut = new ShortcutClient(apiKey); 
+  let story: CreateStoryParams = {
+    name: storyTitle,
+    description: storyDescription,
+    workflow_state_id: workflowId, 
+    group_id: assignedTeams
+  };
 
-  shortcut.getCurrentMemberInfo().then((response) => console.log(response?.data));
+  const shortcut = new ShortcutClient(apiKey);
 
-  shortcut.listProjects().then((response) => console.log(response?.data));
-
-  // Get the JSON webhook payload for the event that triggered the workflow
-  // const payload = JSON.stringify(github.context.payload, undefined, 2)
-  // console.log(`The event payload: ${payload}`);
-} catch (error) {
-  // Core.setFailed(error.message);
+  shortcut.createStory(story);
+} catch (err) {
+  if (err instanceof Error) Core.setFailed(err.message)
 }

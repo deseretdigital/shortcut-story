@@ -7,16 +7,17 @@ try {
     var storyDescription = Core.getInput('story-description');
     var assignedTeams = Core.getInput('assigned-teams');
     var apiKey = Core.getInput('api-key');
-    console.log("Story Name: ".concat(storyTitle));
-    console.log("Description: ".concat(storyDescription));
-    console.log("Teams: ".concat(assignedTeams));
+    var workflowId = Number(Core.getInput('workflow-state-id'));
+    var story = {
+        name: storyTitle,
+        description: storyDescription,
+        workflow_state_id: workflowId,
+        group_id: assignedTeams
+    };
     var shortcut = new client_1.ShortcutClient(apiKey);
-    shortcut.getCurrentMemberInfo().then(function (response) { return console.log(response === null || response === void 0 ? void 0 : response.data); });
-    shortcut.listProjects().then(function (response) { return console.log(response === null || response === void 0 ? void 0 : response.data); });
-    // Get the JSON webhook payload for the event that triggered the workflow
-    // const payload = JSON.stringify(github.context.payload, undefined, 2)
-    // console.log(`The event payload: ${payload}`);
+    shortcut.createStory(story);
 }
-catch (error) {
-    // Core.setFailed(error.message);
+catch (err) {
+    if (err instanceof Error)
+        Core.setFailed(err.message);
 }

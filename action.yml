@@ -10,10 +10,9 @@ inputs:
     description: 'An array of UUIDs of the owners of this story.'
   api-key:
     description: 'Shortcut API KEY'
-    # TODO: Figure out how to handle an array here if it's not clear. 
+  workflow-state-id:
+    description: 'The unique ID of the Workflow.'
 outputs:
-  time: # id of output
-    description: 'The time we greeted you'
 runs:
   using: 'node16'
   main: 'dist/index.js'
