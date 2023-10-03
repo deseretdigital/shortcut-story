@@ -45,7 +45,7 @@ curl -X GET \
 
 ### api-key
 
-The Shortcut API uses token-based authentication, you will need one to use this library.
+The Shortcut API uses token-based authentication, you will need one to use this action.
 
 To generate an API token, go to https://app.shortcut.com/settings/account/api-tokens.
 
