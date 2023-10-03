@@ -2,6 +2,18 @@
 
 A GitHub Action that will create a story directly in Shortcut (formerly Clubhouse) when needed. 
 
+1. [About](#about)
+2. [Inputs](#inputs)
+    * [story-title](#story-title)
+    * [story-description](#story-description)
+    * [assigned-team](#assigned-team)
+    * [api-key](#api-key)
+    * [workflow-state-id](#workflow-state-id)
+3. [Outputs](#outputs)
+4. [Example Usage](#example-usage)
+5. [Contributing](#contributing)
+6. [Important Links](#important-links)
+
 ## About
 
 We wanted to add drift detection into our Terraform process, but there wasn't a clean way to alert/add stories when drift is detected. Instead of adding a GitHub Issue and then posting it into Shortcut, the idea is to go straight to what is _our_ source of truth. 
@@ -53,7 +65,7 @@ curl -X GET \
 
 ## Outputs
 
-_None at this time._
+*None at this time.*
 
 ## Example Usage
 
@@ -67,6 +79,17 @@ _None at this time._
     assigned-team: {TEAM_ID}
     workflow-state-id: {WORKFLOW_ID}
 ```
+
+## Contributing
+
+I'll admit the current process is a little *rinky-dink*, but here's how it works:
+
+1. Make your code changes.
+2. Run `npm run build`. This will convert the `index.ts` file into an `index.js` file which can be used in the next step.
+    * *This file was ignored on purpose. It just ends up being an intermediary.*
+3. Run `npm run publish`. This will use the [ncc workflow](https://docs.github.com/en/actions/creating-actions/creating-a-javascript-action#commit-tag-and-push-your-action-to-github) to create a package without committing the `node_modules`.
+4. Push and create a PR. 
+5. Once the PR is merged, a tag will need to be created.
 
 ## Important Links
 - [Shortcut API Documentation](https://developer.shortcut.com/api/rest/v3#Create-Story)
