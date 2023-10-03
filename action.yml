@@ -6,12 +6,14 @@ inputs:
     required: true
   story-description:
     description: 'The description of the story.'
-  assigned-teams:
-    description: 'An array of UUIDs of the owners of this story.'
+  assigned-team:
+    description: 'The group or team ID that the story will be assigned to.'
   api-key:
     description: 'Shortcut API KEY'
+    required: true
   workflow-state-id:
-    description: 'The unique ID of the Workflow.'
+    description: 'The unique ID of the Workflow that the story will be created in.'
+    required: true 
 runs:
   using: 'node16'
   main: 'dist/index.js'
