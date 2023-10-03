@@ -10679,14 +10679,14 @@ var Core = __nccwpck_require__(6150);
 try {
     var storyTitle = Core.getInput('story-title');
     var storyDescription = Core.getInput('story-description');
-    var assignedTeams = Core.getInput('assigned-teams');
+    var assignedTeam = Core.getInput('assigned-team');
     var apiKey = Core.getInput('api-key');
     var workflowId = Number(Core.getInput('workflow-state-id'));
     var story = {
         name: storyTitle,
         description: storyDescription,
         workflow_state_id: workflowId,
-        group_id: assignedTeams
+        group_id: assignedTeam != null ? assignedTeam : null
     };
     var shortcut = new client_1.ShortcutClient(apiKey);
     shortcut.createStory(story);
