@@ -5,7 +5,7 @@ import * as GitHub from '@actions/github';
 try {
   const storyTitle = Core.getInput('story-title');
   const storyDescription = Core.getInput('story-description');
-  const assignedTeams = Core.getInput('assigned-teams');
+  const assignedTeam = Core.getInput('assigned-team');
   const apiKey = Core.getInput('api-key');
   const workflowId = Number(Core.getInput('workflow-state-id'));
 
@@ -13,7 +13,7 @@ try {
     name: storyTitle,
     description: storyDescription,
     workflow_state_id: workflowId, 
-    group_id: assignedTeams
+    group_id: assignedTeam != null ? assignedTeam : null
   };
 
   const shortcut = new ShortcutClient(apiKey);
